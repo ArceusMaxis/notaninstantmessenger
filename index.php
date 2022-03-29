@@ -40,8 +40,8 @@ function loginForm(){
     <head>
         <meta charset="utf-8" />
  
-        <title>Tuts+ Chat Application</title>
-        <meta name="description" content="Tuts+ Chat Application" />
+        <title>Not An Instant Messenger</title>
+        <meta name="description" content="Not An Instant Messenger" />
         <link rel="stylesheet" href="style.css" />
     </head>
     <body>
