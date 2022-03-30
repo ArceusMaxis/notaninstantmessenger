@@ -3,13 +3,10 @@
 session_start();
  
 if(isset($_GET['logout'])){    
-     
-    //Simple exit message
     $logout_message = "<div class='msgln'><span class='left-info'>User <b class='user-name-left'>". $_SESSION['name'] ."</b> has left the chat session.</span><br></div>";
     file_put_contents("log.html", $logout_message, FILE_APPEND | LOCK_EX);
-     
     session_destroy();
-    header("Location: index.php"); //Redirect the user
+    header("Location: index.php");
 }
  
 if(isset($_POST['enter'])){
@@ -82,18 +79,18 @@ function loginForm(){
                 });
  
                 function loadLog() {
-                    var oldscrollHeight = $("#chatbox")[0].scrollHeight - 20; //Scroll height before the request
+                    var oldscrollHeight = $("#chatbox")[0].scrollHeight - 20;
  
                     $.ajax({
                         url: "log.html",
                         cache: false,
                         success: function (html) {
-                            $("#chatbox").html(html); //Insert chat log into the #chatbox div
+                            $("#chatbox").html(html);
  
                             //Auto-scroll           
-                            var newscrollHeight = $("#chatbox")[0].scrollHeight - 20; //Scroll height after the request
+                            var newscrollHeight = $("#chatbox")[0].scrollHeight - 20;
                             if(newscrollHeight > oldscrollHeight){
-                                $("#chatbox").animate({ scrollTop: newscrollHeight }, 'normal'); //Autoscroll to bottom of div
+                                $("#chatbox").animate({ scrollTop: newscrollHeight }, 'normal');
                             }   
                         }
                     });
